@@ -42,7 +42,7 @@
                      <h3 class="title title-resume">Education</h3>
                      <div class="block-grey">
                         <div id="carousel-a" class="carousel-a">
-                            <div class="arrow-a prev-a"><i class="fa fa-angle-left"></i></div>
+                            
                             <div class="gallery-a education-block">
                               <ul class="images-a">
                                 <li>
@@ -51,7 +51,7 @@
                                           <tbody>
                                              <tr>
                                                 <td class="font-weight-m width-td1">Name</td>
-                                                <td>National Research University of Electronic Technology - MIET</td>
+                                                <td>National Research<br>University of Electronic<br>Technology - MIET</td>
                                              </tr>
                                              <tr>
                                                 <td class="font-weight-m">Period</td>
@@ -71,7 +71,7 @@
                                           <tbody>
                                              <tr>
                                                 <td class="font-weight-m width-td1">Name</td>
-                                                <td>POISK - Center for gifted children</td>
+                                                <td>POISK - Center<br>for gifted children</td>
                                              </tr>
                                              <tr>
                                                 <td class="font-weight-m">Period</td>
@@ -87,6 +87,7 @@
                                 </li>
                               </ul>
                             </div>
+                            <div class="arrow-a prev-a"><i class="fa fa-angle-left"></i></div>
                             <div class="arrow-a next-a"><i class="fa fa-angle-right"></i></div>
                          </div>
                      </div>
@@ -95,7 +96,7 @@
                      <h3 class="title title-resume">Experience</h3>
                      <div class="block-grey">
                         <div id="carousel-b" class="carousel-a">
-                            <div class="arrow-a prev-a"><i class="fa fa-angle-left"></i></div>
+                            
                             <div class="gallery-a experience-block">
                               <ul class="images-a">
                                 <li>
@@ -132,7 +133,7 @@
                                              </tr>
                                              <tr>
                                                 <td class="font-weight-m">Role</td>
-                                                <td>Full Stack Developer, Software Engineer, Electronics Engineer</td>
+                                                <td>Full Stack Developer,<br>Software Engineer,<br>Electronics Engineer</td>
                                              </tr>
                                           </tbody>
                                        </table>
@@ -140,6 +141,7 @@
                                 </li>
                               </ul>
                             </div>
+                            <div class="arrow-a prev-a"><i class="fa fa-angle-left"></i></div>
                             <div class="arrow-a next-a"><i class="fa fa-angle-right"></i></div>
                           </div>
                      </div>
@@ -265,20 +267,29 @@
           <i class="fa fa-angle-up"></i>
       </a>
        <script src="js/app-res.js"></script>
+       
        <script>
+           
            function hsArrow(block, pos, count, width){
+               console.log(block, pos, count, width);
                var carousel = document.getElementById('carousel-' + block);
                if(pos === 0){
+                   console.log("Hide left arrow");
                    carousel.querySelector('.prev-a').style.display = "none";
                }else{
+                   console.log("Show left arrow");
                    carousel.querySelector('.prev-a').style.display = "block";
                }
                if(pos === (count - 2) * width){
+                   console.log("Hide right arrow");
                    carousel.querySelector('.next-a').style.display = "none";
                }else{
+                   console.log("Show right arrow"); 
                    carousel.querySelector('.next-a').style.display = "block";
                }
+               
            }
+           
            
             var lis_a = document.getElementsByTagName('.education-block .images-a li');
             for (var i = 0; i < lis_a.length; i++) {
@@ -301,14 +312,17 @@
             carousel_a.querySelector('#carousel-a .prev-a').onclick = function() {
                 position_a = Math.min(position_a + width_a * count_a, 0);
                 list_a.style.marginLeft = position_a + 'px';
-                hsArrow("a", position_a, count_a, width_a);
+                //hsArrow("a", position_a, count_a, width_a);
             };
 
             carousel_a.querySelector('#carousel-a .next-a').onclick = function() {
                 position_a = Math.max(position_a - width_a * count_a, - width_a * (listElems_a.length - count_a));
                 list_a.style.marginLeft = - position_a + 'px';
-                hsArrow("a", position_a, count_a, width_a);
+                //hsArrow("a", position_a, count_a, width_a);
             };
+            
+            
+            
             
             
             var lis_b = document.getElementsByTagName('.experience-block .images-a li');
@@ -332,14 +346,15 @@
             carousel_b.querySelector('#carousel-b .prev-a').onclick = function() {
                 position_b = Math.min(position_b + width_b * count_b, 0);
                 list_b.style.marginLeft = position_b + 'px';
-                hsArrow("b", position_b, count_b, width_b);
+                //hsArrow("b", position_b, count_b, width_b);
             };
 
             carousel_b.querySelector('#carousel-b .next-a').onclick = function() {
                 position_b = Math.max(position_b - width_b * count_b, - width_b * (listElems_b.length - count_b));
                 list_b.style.marginLeft = - position_b + 'px';
-                hsArrow("b", position_b, count_b, width_b);
-            }; 
+                //hsArrow("b", position_b, count_b, width_b);
+            };
+            
        </script>
    </body>
 </html>
