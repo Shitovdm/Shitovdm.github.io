@@ -350,8 +350,8 @@
                 lis_b[i].appendChild(span_b);
             }
 
-            var width_b = 420;
-            var count_b = 3;
+            var width_b = 420;   // Container width.
+            var count_b = 4;     // Amount of containers + 1;
 
             var carousel_b = document.getElementById('carousel-b');
             var list_b = carousel_b.querySelector('ul');
@@ -366,8 +366,11 @@
             };
 
             carousel_b.querySelector('#carousel-b .next-a').onclick = function() {
-                position_b = Math.max(position_b - width_b * count_b, - width_b * (listElems_b.length - count_b));
-                list_b.style.marginLeft = - position_b + 'px';
+                if(position_b < width_b * 2){
+                    position_b = position_b + Math.max(position_b - width_b * count_b, - width_b * (listElems_b.length - count_b));
+                    list_b.style.marginLeft = - position_b + 'px';
+                }
+
                 //hsArrow("b", position_b, count_b, width_b);
             };
             
